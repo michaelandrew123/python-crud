@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="gallery">
+        {% for product in products %}
+            <div class="img">
+                <img src="{{ product.image_url }}" class="card-img-top" alt="...">
+                <div>
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">${{ product.price }}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+<div class="row">
+    <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 280 }'>
+          {% for product in products %}
+                <div class="grid-item">
+                    <div class="col-xs-6 col-md-4">
+                        <div class="card-columns">
+                            <div class="card" style="width: 18rem;">
+                                <img src="{{ product.image_url }}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ product.name }}</h5>
+                                    <p class="card-text">${{ product.price }}</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
